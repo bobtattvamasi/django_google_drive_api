@@ -45,11 +45,12 @@
 ## Инсталяция  
 
 Убедитесь, что на вашем компьютере установлены:  
-Python 3.11 
-pip  
-Docker  
+Python 3.11  
+pip
 Git  
 PostgreSQL  
+
+
 Создайте папку для проекта и клонируйте репозиторий.
 Примените миграции Django: ./manage.py migrate  
 Создайте суперпользователя Django: ./manage.py createsuperuser  
@@ -69,24 +70,22 @@ API-метод будет доступен по адресу: http://localhost:8
 * Использует Celery для асинхронной обработки задач создания файлов. 
 * То ли еще будет...
 
-## Технологии
+## Зависимости
 
 * Python 3.11
 * Django 3.2
 * Celery 5.4
 * Redis 5.0
-* Docker
-* GitLab CI/CD
 * PostgreSQL 10
 
 ## Запуск
 
 1. Клонируйте репозиторий.
-2. Создайте файл `.env` и добавьте туда необходимые секретные ключи (токены доступа Google Drive, JWT-секрет).
-3. Запустите Docker Compose: `docker-compose up -d`
-4. Создайте пользователя в Django admin.
-5. Получите JWT-токен для пользователя.
-6. Отправьте POST-запрос на API-метод, используя JWT-токен и параметры `data`, `name` и `user_id`.
+2. Скачайте json файл со всеми кредами (токены доступа Google Drive).
+3. Создайте пользователя в Django admin.
+4. Запустите сервер Django: ./manage.py runserver
+5. Запустите брокер сообщений celery: celery -A nova_test_project worker -l info
+6. Отправьте POST-запрос на API-метод, используя параметры `data`, `name` и `username`.
 
 ## Тестирование
 
