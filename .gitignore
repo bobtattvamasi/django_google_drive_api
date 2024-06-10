@@ -1,0 +1,7 @@
+creds.json
+db.sqlite3
+.idea
+venv
+nova_test_project/__pycache__
+google_drive/__pycache__
+google_drive/migrations
